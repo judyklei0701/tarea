@@ -1,0 +1,103 @@
+class algoritmo{
+    //ejercicio
+ ejercicio(){
+
+    public static void main(String[] args) {
+        String texto = "afoolishconsistencyisthehobgoblinoflittlemindsadoredbylittlestatesmenandphilosophersanddivineswithconsistencyagreatsoulhassimplynothingtodohemayaswellconcernhimselfwithhisshadowonthewallspeakwhatyouthinknowinhardwordsandtomorrowspeakwhattomorrowthinksinhardwordsagainthoughitcontradicteverythingyousaidtodayahsoyoushallbesuretobemisunderstoodisitsobadthentobemisunderstoodpythagoraswasmisunderstoodandsocratesandjesusandlutherandcopernicusandgalileoandnewtonandeverypureandwisespiritthatevertookfleshtobegreatistobemisunderstood";
+
+        findPalindromes(texto);
+    }
+
+    public static void findPalindromes(String text) {
+        for (int i = 0; i < text.length(); i++) {
+            for (int j = i + 1; j <= text.length(); j++) {
+                String substring = text.substring(i, j);
+                if (isPalindrome(substring)) {
+                    System.out.println(substring);
+                }
+            }
+        }
+    }
+
+    public static boolean isPalindrome(String str) {
+        return str.equals(new StringBuilder(str).reverse().toString());
+    }
+}
+  //ejercicio2
+  ejercicio2(){
+
+    public static void main(String[] args) {
+        int divisorCountThreshold = 1000;
+        int result = findFibonacciWithDivisors(divisorCountThreshold);
+        System.out.println("El primer número de Fibonacci con más de " + divisorCountThreshold + " divisores es: " + result);
+    }
+
+    public static int countDivisors(int n) {
+        int divisors = 0;
+        for (int i = 1; i <= n; i++) {
+            if (n % i == 0) {
+                divisors++;
+            }
+        }
+        return divisors;
+    }
+
+    public static int findFibonacciWithDivisors(int divisorCount) {
+        int a = 1, b = 1, c, index = 2;
+
+        while (true) {
+            c = a + b;
+            a = b;
+            b = c;
+
+            if (countDivisors(c) > divisorCount) {
+                return c;
+            }
+
+            index++;
+        }
+    }
+}
+//ejercicio3
+
+import java.util.Random;
+
+ejercicio3(){
+
+    public static void main(String[] args) {
+        String origen = "Origen";
+        String destino = "Destino";
+        int distancia = generateRandomDistance();
+
+        int tiempoEstimado = estimateDeliveryTime(distancia);
+
+        System.out.println("Envío desde " + origen + " hasta " + destino + " con una distancia de " + distancia + " km.");
+        System.out.println("Tiempo estimado de entrega: Día + " + tiempoEstimado);
+    }
+
+    public static int estimateDeliveryTime(int distance) {
+        if (distance < 100) {
+            return 0;  // Entregan el mismo día
+        } else if (distance < 200 || distance < 300) {
+            return 1;  // Entregan al día siguiente
+        } else if (distance < 400) {
+            return 2;  // Entregan al día subsiguiente
+        } else if (distance < 500) {
+            return 3;  // Entregan al tercer día
+        }
+        // Puedes agregar más rangos según sea necesario
+
+        return -1; // Valor por defecto si no se cumple ningún rango
+    }
+
+    public static int generateRandomDistance() {
+        Random rand = new Random();
+        return rand.nextInt(2001); // Números aleatorios entre 0 y 2000
+    }
+}
+
+}
+const secuen1 = new algoritmo()
+//secuen1.ejercicio()
+//secuen1ejercicio2()
+//secuen1.ejercicio3()
